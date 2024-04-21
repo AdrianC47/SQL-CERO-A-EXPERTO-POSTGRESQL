@@ -6,7 +6,7 @@ services:
     container_name: my-database
     restart: always
     ports:
-      - 5432:5432 # primero es el puerto de la maquina local luego del contenedor
+      - 5433:5432 # primero es el puerto de la maquina local luego del contenedor
     environment:
       - POSTGRES_USER=alumno
       - POSTGRES_PASSWORD=123456
