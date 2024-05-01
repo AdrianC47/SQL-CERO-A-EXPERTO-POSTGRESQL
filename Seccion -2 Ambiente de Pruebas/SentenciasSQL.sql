@@ -38,3 +38,24 @@ SELECT * FROM USERS LIMIT 10;
 
 SELECT * FROM USERS LIMIT 2 OFFSET 2;
 
+
+-- Se debe usar comilla simple
+SELECT * FROM users where name = 'Kurt'; 
+
+-- Nombre inicie con B
+SELECT * FROM USERS WHERE NAME LIKE 'B%';
+
+-- Todos los registros que tengan la letra I
+SELECT * FROM USERS WHERE NAME LIKE '%i%';
+
+
+-- Todos los registros que terminen con n
+SELECT * FROM USERS WHERE  "name" LIKE '%n';
+
+
+-- Todos los registros que sean como Adrián pero no se sabe si
+-- la primera A está en mayúscula o minúscula entonces se hace lo siguiente
+SELECT * FROM USERS WHERE  "name" LIKE  '%_drián'
+
+--Puede iniciar con cualquier letra  seguido de "ik" y cualquier cosa después
+SELECT * FROM USERS WHERE "name" LIKE '_ik%';
