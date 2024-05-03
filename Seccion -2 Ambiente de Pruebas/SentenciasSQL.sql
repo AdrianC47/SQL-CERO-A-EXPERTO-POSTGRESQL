@@ -59,3 +59,13 @@ SELECT * FROM USERS WHERE  "name" LIKE  '%_drián'
 
 --Puede iniciar con cualquier letra  seguido de "ik" y cualquier cosa después
 SELECT * FROM USERS WHERE "name" LIKE '_ik%';
+
+-- Eliminación de registros
+DELETE FROM USERS WHERE name like 'Fernanda';
+
+-- Mucho cuidado con hacer un delete from users sin un where
+-- eso borrara todos los registros
+
+--Para desactivar el autocommit, necesitas manejar las transacciones de manera explícita. Esto se hace utilizando los comandos BEGIN y COMMIT (o ROLLBACK). 
+--Es decir se usa el BEGIN antes de la sentencia para posteriormente usar
+--el COMMIT y confirmar la transacción 
