@@ -74,3 +74,34 @@ DELETE FROM USERS WHERE name like 'Fernanda';
 -- Para elminar la tabla usamos
 DROP TABLE users; -- esto la destruye la elimina por completo
 TRUNCATE TABLE users; -- Esto unicamente lo que hace es eliminar sus registros
+
+
+-- Operadores de Strings y Funciones
+-- En table Plus en windows para poder dar formato se usa CTRL + ALT + I
+SELECT
+    id,
+    UPPER(name) as upper_name,
+    LOWER(name) as lower_name,
+    LENGTH(name) as LENGTH,
+    (20 * 2) as constante,
+    CONCAT('*', id, '-', name, '*') as Concatenacion,
+    CONCAT('*' || id || '-' || name || '*') as barcode,
+    name as nombreOriginal
+FROM
+    USERS;
+
+
+-- Intermedio - Substring y Position
+
+-- recordar que position no es base cero es decir empieza contando desde 1
+SELECT
+    name,
+    SUBSTRING(name, 0,POSITION(' ' in name)) as first_name,
+    SUBSTRING(name, POSITION(' ' in name)+1) as last_name,
+    SUBSTRING(name, POSITION(' ' in name)+1,LENGTH(name)) as last_name_AC47,
+    TRIM(SUBSTRING(name, POSITION(' ' in name))) as trimmed_last_name_v2 -- esto no es recomendable
+from
+    users;
+
+
+-- La Computadora hace lo que nosotros le decimos que haga no lo que queremos
