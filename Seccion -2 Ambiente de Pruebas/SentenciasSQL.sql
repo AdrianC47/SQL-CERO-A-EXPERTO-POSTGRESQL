@@ -69,3 +69,8 @@ DELETE FROM USERS WHERE name like 'Fernanda';
 --Para desactivar el autocommit, necesitas manejar las transacciones de manera explícita. Esto se hace utilizando los comandos BEGIN y COMMIT (o ROLLBACK). 
 --Es decir se usa el BEGIN antes de la sentencia para posteriormente usar
 --el COMMIT y confirmar la transacción 
+
+
+-- Para elminar la tabla usamos
+DROP TABLE users; -- esto la destruye la elimina por completo
+TRUNCATE TABLE users; -- Esto unicamente lo que hace es eliminar sus registros
