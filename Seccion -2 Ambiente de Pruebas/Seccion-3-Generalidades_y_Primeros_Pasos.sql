@@ -105,3 +105,18 @@ from
 
 
 -- La Computadora hace lo que nosotros le decimos que haga no lo que queremos
+
+-- TAREA
+update
+    USERS
+set
+    first_name = SUBSTRING(name, 0, POSITION(' ' in name)),
+    last_name = SUBSTRING(name, POSITION(' ' in name) + 1)
+    
+
+    
+update
+    USERS
+set
+	"name" = 'Adrián Cabrera'
+	where "id" =1
