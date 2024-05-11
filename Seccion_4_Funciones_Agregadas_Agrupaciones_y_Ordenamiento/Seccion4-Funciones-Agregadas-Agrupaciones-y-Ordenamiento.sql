@@ -33,3 +33,19 @@ select
 from
     users;
 
+-- Se requiere saber cuales son las personas que tienen solo 4 followers y 4999 followers
+
+SELECT first_name, last_name, followers 
+from users
+where followers = 4 or followers = 4999;
+
+-- Pero si se requiere saber el numero de personas junto con este filtro
+-- pero indicando los campos como tal, para eso se usa la sentencia
+-- GROUP BY
+
+SELECT COUNT(*), followers
+from users
+where followers = 4 or followers = 4999
+GROUP BY followers -- Especifico la columna que quiero ver
+ORDER BY followers ASC;
+
