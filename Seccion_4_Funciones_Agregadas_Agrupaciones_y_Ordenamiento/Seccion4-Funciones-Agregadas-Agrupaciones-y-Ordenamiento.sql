@@ -67,3 +67,11 @@ HAVING
     COUNT(*) > 5
 ORDER BY
     COUNT(*) ASC;
+
+
+ 
+-- Se requiere el listado de todos los paises de forma unica
+select
+    DISTINCT country
+from
+    users;
