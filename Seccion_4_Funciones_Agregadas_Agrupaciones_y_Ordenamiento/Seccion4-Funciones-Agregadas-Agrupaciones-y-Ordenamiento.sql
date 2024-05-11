@@ -49,3 +49,21 @@ where followers = 4 or followers = 4999
 GROUP BY followers -- Especifico la columna que quiero ver
 ORDER BY followers ASC;
 
+
+
+-- Si se requiere saber el numero de personas por país -- pero de los países 
+-- con mayor población 
+-- Para solventar esto usaremos la sentencia HAVING la cual va siempre luego del GROUP BY
+-- Ojo que siempre que se ponga un count junto con otro campo  
+-- se debe añadir la sentencia GROUP BY
+SELECT
+    COUNT(*) as total, 
+    COUNTRY
+FROM
+    users
+GROUP BY
+    country
+HAVING
+    COUNT(*) > 5
+ORDER BY
+    COUNT(*) ASC;
