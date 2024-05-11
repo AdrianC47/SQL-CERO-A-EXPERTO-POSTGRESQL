@@ -95,3 +95,34 @@ ORDER BY COUNT(*) DESC;
 -- debido a que tiene una estructura inicial definida, entonces debo de agrupar por la nueva
 -- estructura que estoy haciendo es decir el substring, 
 -- Ojo que se puede mandar el alias como todo el query de substring
+
+
+-- Uso de SubQueries (Query que se ejecuta dentro de otro query)
+-- Es un poder que conlleva una gran responsabilidad es decir
+-- Hay que hacerlo con cuidado ya que puede ser muy costoso e ineficiente
+
+SELECT
+    sum(total)
+FROM
+    (
+        SELECT
+            COUNT(*) as total,
+            SUBSTRING(email, POSITION('@' in email) + 1) as domain,
+            'Adrian' as name,
+            24 as age
+        from
+            users
+        GROUP BY
+            domain
+        HAVING
+            COUNT(*) > 1
+        ORDER BY
+            COUNT(*) DESC
+    ) as email_domains -- es obligatorio poner el alias
+
+
+
+
+
+
+
