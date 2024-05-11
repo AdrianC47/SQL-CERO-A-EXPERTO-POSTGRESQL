@@ -75,3 +75,23 @@ select
     DISTINCT country
 from
     users;
+ 
+
+-- Group BY con otras funciones
+
+-- Se requiere obtener el dominio del correo electronico y contar cuantos correos hay por dominio
+SELECT 
+    COUNT(*),
+    SUBSTRING(email, POSITION('@' in email) + 1) as domain
+from
+    users
+GROUP BY
+    domain
+HAVING
+    COUNT(*) > 1
+ORDER BY COUNT(*) DESC;
+
+-- Seria un error y un falso positivo el poner el group by por email
+-- debido a que tiene una estructura inicial definida, entonces debo de agrupar por la nueva
+-- estructura que estoy haciendo es decir el substring, 
+-- Ojo que se puede mandar el alias como todo el query de substring
