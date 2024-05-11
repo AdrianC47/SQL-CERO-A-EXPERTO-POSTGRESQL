@@ -10,8 +10,13 @@ Revisar el archivo docker-compose.yml para los usuarios y contraseñas
 
 
 ![Definicion](Anexos/Introducción/2.PNG)  
+  
 ![Terminologia](Anexos/Terminología%20y%20Estructura/Terminología.PNG)  
+  
 ![Funciones](Anexos/Terminología%20y%20Estructura/Funciones.PNG)  
+  
 ![Select](Anexos/Terminología%20y%20Estructura/Estructura%20de%20un%20SELECT.PNG)  
-![SQL](Anexos/Introducción/2.PNG)  
-![NoSQL](Anexos/Introducción/2.PNG)  
+  
+![SQL](Anexos/Introducción/6.PNG)  
+  
+![NoSQL](Anexos/Introducción/7.PNG)  
