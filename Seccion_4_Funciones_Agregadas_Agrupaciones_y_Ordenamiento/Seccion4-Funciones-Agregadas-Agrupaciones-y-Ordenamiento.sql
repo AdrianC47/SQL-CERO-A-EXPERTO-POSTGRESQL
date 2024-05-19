@@ -121,8 +121,7 @@ FROM
     ) as email_domains -- es obligatorio poner el alias
 
 
+--WHERE opera sobre registros individuales, mientras que HAVING lo hace sobre un grupo de registros.
 
-
-
-
-
+--Having podría decirse es para filtrar el resultado por así decirlo, mientras que el WHERE es para encontrar dicho resultado, algo así como que 
+-- el HAVING  es el filtro sobre el filtro
