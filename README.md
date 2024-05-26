@@ -20,3 +20,5 @@ Revisar el archivo docker-compose.yml para los usuarios y contraseñas
 ![SQL](Anexos/Introducción/6.PNG)  
   
 ![NoSQL](Anexos/Introducción/7.PNG)  
+
+https://www.postgresql.org/docs/7.2/sql-altertable.html
