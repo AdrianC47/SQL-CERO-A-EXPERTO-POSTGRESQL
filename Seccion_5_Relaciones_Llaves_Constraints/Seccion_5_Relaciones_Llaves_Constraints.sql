@@ -60,3 +60,11 @@ ALTER TABLE country add CHECK (
     );
 
 -- En los gestores de bases puedo observar en caso de que se requiera pues como estan creadas las restricciones
+
+-- Creando Indices
+create unique index "unique_country_name" on
+country(name);
+
+create index "country_continent" on
+country(continent);
+);
