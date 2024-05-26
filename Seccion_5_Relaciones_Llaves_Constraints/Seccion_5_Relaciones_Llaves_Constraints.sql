@@ -79,3 +79,15 @@ create unique index "unique_name_countrycode_district" on city (
 create  index "index_district" on city (
 	district
 );
+
+-- Creando llaves foraneas
+
+-- Se hicieron las siguientes sentencias para poder crear la regla de llaves foraneas ya que no tenian registros para establecer la relacion
+insert into country values('AFG','Afghanistan','Asia','Southern Asia',652860,1919,40000000,62,69000000,null,'Afghanistan','Totalitarian',null,null,'AF');
+insert into country values('NAM','Namibia','Africa','Africa Austral',825625,1990,2606971,65.1,12800000.00,13300000.00,'Namibia','Presidencialist Republic','Hage Geingob',2,'NA');
+alter table city 
+	add constraint fk_country_code
+	foreign key (countrycode)
+	references country (code);
+
+-- Nota : La BD es suficientemente inteligente como para saber e inferir las relaciones muchos a uno en este caso producto de crear las llaves foráneas 
