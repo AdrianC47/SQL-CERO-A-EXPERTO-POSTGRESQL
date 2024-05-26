@@ -68,3 +68,14 @@ country(name);
 create index "country_continent" on
 country(continent);
 );
+
+
+-- Creacion  de un index compuesto
+create unique index "unique_name_countrycode_district" on city (
+	name, countrycode, district
+)
+
+-- Crear otro indice que indique que no es unico el distrito
+create  index "index_district" on city (
+	district
+);
