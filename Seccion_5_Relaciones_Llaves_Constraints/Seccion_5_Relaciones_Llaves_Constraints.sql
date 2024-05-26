@@ -91,3 +91,9 @@ alter table city
 	references country (code);
 
 -- Nota : La BD es suficientemente inteligente como para saber e inferir las relaciones muchos a uno en este caso producto de crear las llaves foráneas 
+
+-- Llave foránea con countrylanguage
+alter table countrylanguage  
+	add constraint fk_country_code
+	foreign key (countrycode)
+	references country (code);
