@@ -97,3 +97,20 @@ alter table countrylanguage
 	add constraint fk_country_code
 	foreign key (countrycode)
 	references country (code);
+
+
+-- ON DELETE - CASCADE
+
+SELECT * FROM country WHERE code = 'AFG';
+
+--  Para poder habilitar el borrado en cascada se lo hizo directo desde el cliente SQL, sin embargo este es un ejemplo de la sentencia
+ALTER TABLE public.city DROP CONSTRAINT fk_country_code;
+ALTER TABLE public.city ADD CONSTRAINT fk_country_code FOREIGN KEY (countrycode) REFERENCES public.country(code) ON DELETE CASCADE;
+-- Igual para la otra tabla
+
+-- Y ahora ya puedo borrar en cascada
+delete from country  where code = 'AFG';
+-- y puedo ver que ya no existe este country
+SELECT * FROM country WHERE code = 'AFG';
+
+
