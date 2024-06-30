@@ -40,3 +40,16 @@ insert into country_bk (select * from country)
 
 -- Borramos la reestriccion para modifciar los datos en country
 alter table country  drop constraint country_continent_check;
+
+-- Lo que se busca ahora es en mi tabla country cambiar el campo del continente por el id ... que esta en la nueva tabla
+update
+	country a
+set continent = ( select code from continent c where c.name = a.continent);
+
+-- Ahora lo que procede es hacer la relacion con la llave foránea  y acoplar el tipo de dato a la tabla origen para la relacion
+
+-- Cambio de datos
+alter table country 
+alter column continent type int4
+using continent::integer; -- en caso de que no funcione usar continent/1s caso contario seria de crear  una nueva columna
+
