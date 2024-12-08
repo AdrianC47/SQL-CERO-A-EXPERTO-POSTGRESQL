@@ -10,3 +10,17 @@ order by  name asc;
 -- puede variar el orden
 -- se puede usar el 1, 2 a manera de obtener los valores por orden , por ejemplo en el caso de
 -- arriba el 1 haría referencia a code
+
+
+-- UNION DE TABLAS -- Where
+
+SELECT
+  a.name as country,
+  b.name as continent
+from
+  country a,
+  continent b
+where
+  a.continent = b.code
+order by
+  b.name asc;
