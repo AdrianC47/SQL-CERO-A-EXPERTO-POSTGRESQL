@@ -35,3 +35,8 @@ from
   inner join continent b on a.continent = b.code
 order BY
   a.NAME ASC;
+
+
+-- Alterar Secuencia
+alter SEQUENCE continent_code_seq RESTART with 8;
+
