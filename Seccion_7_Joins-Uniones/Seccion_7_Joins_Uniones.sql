@@ -40,3 +40,23 @@ order BY
 -- Alterar Secuencia
 alter SEQUENCE continent_code_seq RESTART with 8;
 
+-- FULL OUTER JOIN
+
+-- El uso de OUTER en las consultas es opcional y no afecta el resultado 
+-- de la consulta. Tanto RIGHT JOIN como RIGHT OUTER JOIN devuelven los mismos 
+-- resultados, incluyendo las filas no coincidentes de la tabla derecha y los 
+-- valores nulos de la tabla izquierda cuando no hay coincidencias
+
+
+-- country a  -- a.name as country , a.continent as  continentCode (codigo numérico)
+-- continent b - b.name as continentName
+
+SELECT
+  a.name as country,
+  a.continent as continentCode,
+  b.name as continentName
+FROM
+  country a
+  FULL OUTER JOIN continent b on a.continent = b.code
+ORDER BY
+  a.NAME DESC;
