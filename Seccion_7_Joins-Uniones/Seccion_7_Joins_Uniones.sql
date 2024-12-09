@@ -60,3 +60,33 @@ FROM
   FULL OUTER JOIN continent b on a.continent = b.code
 ORDER BY
   a.NAME DESC;
+
+-- LEFT OUTER JOIN
+-- Obtener un listado de todos los continentes
+-- que no tienen registros en la tabla de paises
+
+SELECT 
+  a.name as country,
+  a.continent as continentCode,
+  b.name as continentName
+FROM
+  country a 
+  LEFT OUTER JOIN continent b on a.continent = b.code
+  ORDER by
+    a.name desc;
+
+
+-- RIGHT OUTER JOIN
+-- Obtener un listado de todos los continentes
+-- que no tienen registros en la tabla de paises
+SELECT
+  a.name as country,
+  a.continent as continentCode,
+  b.name as continentName
+FROM
+  country a
+  RIGHT OUTER JOIN continent b on a.continent = b.code
+where
+  a.continent is null
+ORDER by
+  a.name desc;     
