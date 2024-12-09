@@ -24,3 +24,14 @@ where
   a.continent = b.code
 order by
   b.name asc;
+
+
+-- INNER JOIN
+SELECT
+  a.name as country,
+  b.name as continent
+from
+  country a
+  inner join continent b on a.continent = b.code
+order BY
+  a.NAME ASC;
