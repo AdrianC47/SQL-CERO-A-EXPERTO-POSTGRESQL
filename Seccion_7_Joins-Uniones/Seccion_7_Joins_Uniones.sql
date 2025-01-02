@@ -90,3 +90,22 @@ where
   a.continent is null
 ORDER by
   a.name desc;     
+
+
+-- Aggreations Joins
+-- Digamos que se quiere contar cuantos continentes que hay en la tabla country
+-- se requiere tambien el nombre del continente y ordenar de acuerdo al conteo
+-- Al usar el inner join se obtiene solo los continentes que estan en la tabla country
+-- Al usar full outer join se obtienen todos los continentes de la tabla continent que no estan en la tabla country con valor de 1
+-- si lo que se busca es cambiar el valor se hace lo siguiente: dividir los scripts
+
+(SELECT count(*) as total, b.name from country a
+         INNER JOIN continent b on a.continent = b.code
+GROUP BY b.name)
+UNION (
+SELECT  0 as total, b.name from country a -- aqui se pone en cero para mostrar especificamente los continentes que no estan en la tabla country con valor de 0
+         RIGHT JOIN  continent b on a.continent = b.code
+WHERE a.continent is null
+GROUP BY b.name)
+order by total asc;
+-- Entonces
