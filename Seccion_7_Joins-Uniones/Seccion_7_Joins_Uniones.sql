@@ -165,3 +165,28 @@ ORDER BY Total DESC
 limit 1;
 
 
+-- ¿Quiero saber los idiomas oficiales que se hablan por continente?
+
+SELECT * FROM countrylanguage where  isofficial=true;-- idiomas oficiales
+ 
+SELECT * FROM country;
+
+SELECT * FROM continent;
+
+-- Primera solucion
+SELECT DISTINCT  a.language,c.name FROM countrylanguage a
+INNER JOIN country b on a.countrycode = b.code
+INNER JOIN continent c on  c.code = b.continent
+where a.isofficial= true;
+
+-- Segunda Solucion en caso de que pidan cuantos idiomas oficiales se hablan por continente
+SELECT count(*), continent FROM
+    (SELECT distinct  a.language, c.name as continent
+    FROM countrylanguage a
+        INNER JOIN country b on a.countrycode = b.code
+        INNER JOIN continent c on c.code = b.continent
+    where a.isofficial = true
+) AS totales
+GROUP BY continent
+ORDER BY count(*) DESC;
+
