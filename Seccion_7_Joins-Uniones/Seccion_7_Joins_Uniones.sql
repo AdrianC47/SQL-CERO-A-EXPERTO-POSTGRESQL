@@ -148,3 +148,20 @@ WHERE b.name LIKE '%America%'
 )
 ORDER BY Total ASC;
 
+
+-- Quiero que me muestren el pais con más ciudades
+-- Campos: total de ciudades y el nombre del país
+-- usar INNER JOIN
+
+SELECT * FROM  country;
+SELECT * FROM city;
+
+
+SELECT count(*) AS Total, a.name as Country
+FROM country a
+         INNER JOIN city b on b.countrycode = a.code
+GROUP BY Country
+ORDER BY Total DESC
+limit 1;
+
+
