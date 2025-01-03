@@ -108,4 +108,43 @@ SELECT  0 as total, b.name from country a -- aqui se pone en cero para mostrar e
 WHERE a.continent is null
 GROUP BY b.name)
 order by total asc;
--- Entonces
+
+
+-- Realizar esta tarea sacar el query del siguiente resultado
+-- son todos los continentes menos America y luego unirlo con todo lo demas que coincida con America
+-- Count Union - Tarea
+-- Total |  Continent
+-- 5	  | Antarctica
+-- 28	  | Oceania
+-- 46	  | Europe
+-- 51	  | America
+-- 51	  | Asia
+-- 58	  | Africa
+
+-- Solucion mia
+SELECT COUNT(*) AS Total, c.name as Continent FROM continent c
+INNER JOIN country d on c.code = d.continent
+WHERE c.name NOT LIKE '%America%'
+GROUP BY c.name
+union  (
+SELECT COUNT(*) AS Total, 'America' AS Continent FROM continent c
+INNER JOIN country d on c.code = d.continent
+WHERE c.name LIKE '%America%'
+GROUP BY c.name='America'
+)
+ORDER BY Total ASC;
+
+-- Solucion Fernando Herrera
+
+(SELECT  count(*) as Total, b.name as Continent from country a
+INNER JOIN continent b on a.continent = b.code
+WHERE b.name NOT LIKE '%America%'
+GROUP BY b.name
+)UNION
+(
+SELECT count(*) as total, 'America' from country a
+INNER JOIN continent b on a.continent = b.code
+WHERE b.name LIKE '%America%'
+)
+ORDER BY Total ASC;
+
