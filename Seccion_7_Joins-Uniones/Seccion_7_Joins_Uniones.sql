@@ -190,3 +190,16 @@ SELECT count(*), continent FROM
 GROUP BY continent
 ORDER BY count(*) DESC;
 
+
+
+-- Ahora lo que se busca es usar la otra tabla para la relacion la de language
+
+SELECT DISTINCT d.name,a.languagecode, c.name
+FROM countrylanguage a
+         INNER JOIN country b on a.countrycode = b.code
+         INNER JOIN continent c on c.code = b.continent
+         INNER JOIN language d on a.languagecode = d.code
+where a.isofficial = true;
+
+-- Es importante que cuando la complejidad es alta entre las tablas
+-- se use alias para que sea mas facil de leer pero los alias como palabras
